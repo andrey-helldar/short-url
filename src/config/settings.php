@@ -16,7 +16,15 @@ return [
     'key' => Model::UNIQUE_STRING,
 
     /*
-     * URL prefix.
+     * Route name.
+     *
+     * Default, 'short_url'.
+     */
+
+    'route_name' => 'short_url',
+
+    /*
+     * URL prefix for the route.
      *
      * Default, 'go'.
      */

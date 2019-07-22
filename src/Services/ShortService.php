@@ -27,14 +27,21 @@ class ShortService
 
     public function get(string $key): string
     {
+        /** @var \Helldar\ShortUrl\Models\Short $item */
         $item = ShortModel::where('key', $key)->firstOrFail();
 
         $item->increment('visited');
 
-        return $item->url;
+        return $this->route($item->key);
     }
 
-    public function set(string $url): ShortModel
+    /**
+     * @param string $url
+     *
+     * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
+     * @return string
+     */
+    public function set(string $url): string
     {
         $this->validateUrl($url);
 
@@ -42,7 +49,14 @@ class ShortService
 
         $this->setKey($item);
 
-        return $item;
+        return $this->route($item->key);
+    }
+
+    private function route(string $key): string
+    {
+        $name = \config('short_url.route_name', 'go');
+
+        return \route($name, $key);
     }
 
     private function validateUrl(string $url)
