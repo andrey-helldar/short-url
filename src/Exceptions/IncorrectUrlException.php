@@ -4,10 +4,8 @@ namespace Helldar\ShortUrl\Exceptions;
 
 class IncorrectUrlException extends \Exception
 {
-    public function __construct(string $url)
+    public function __construct(string $message)
     {
-        $message = \sprintf('Incorrect URL: %s', $url);
-
         parent::__construct($message, 400);
     }
 }

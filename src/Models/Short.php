@@ -2,12 +2,12 @@
 
 namespace Helldar\ShortUrl\Models;
 
-use Helldar\ShortUrl\Exceptions\IncorrectUrlException;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * \Helldar\ShortUrl\Models\Short
  *
+ * @property int id
  * @property null|string $key
  * @property string $host
  * @property string $url
@@ -29,17 +29,8 @@ class Short extends Model
 {
     protected $fillable = ['key', 'host', 'url', 'visited'];
 
-    /**
-     * @param string $url
-     *
-     * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
-     */
     protected function setUrlAttribute(string $url)
     {
-        if (\filter_var($this->getAttribute('url'), FILTER_VALIDATE_URL) === false) {
-            throw new IncorrectUrlException($url);
-        }
-
         $this->attributes['url'] = $url;
 
         $this->setAttribute('host', \parse_url($url, PHP_URL_HOST));

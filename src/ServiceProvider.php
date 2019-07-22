@@ -8,7 +8,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/config/settings.php' => \config_path('short_url.php'),
-        ]);
+        ], 'config');
 
         $this->loadMigrationsFrom(
             __DIR__ . '/resources/migrations'

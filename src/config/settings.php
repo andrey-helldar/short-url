@@ -10,8 +10,24 @@ return [
      *   1 - Helldar\ShortUrl\Variables\Model::PRIMARY_KEY
      *   2 - Helldar\ShortUrl\Variables\Model::UNIQUE_STRING
      *
-     * By default, 1.
+     * Default, 2.
      */
 
-    'key' => Model::PRIMARY_KEY,
+    'key' => Model::UNIQUE_STRING,
+
+    /*
+     * URL prefix.
+     *
+     * Default, 'go'.
+     */
+
+    'url_prefix' => 'go',
+
+    /*
+     * Redirect status code.
+     *
+     * Default, 301.
+     */
+
+    'redirect_code' => 301,
 ];
