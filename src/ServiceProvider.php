@@ -11,7 +11,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'config');
 
         $this->loadMigrationsFrom(
-            __DIR__ . '/resources/migrations'
+            __DIR__ . '/database/migrations'
+        );
+
+        $this->loadRoutesFrom(
+            __DIR__ . '/routes/web.php'
         );
     }
 
