@@ -11,7 +11,7 @@ class CreateShortsTable extends Migration
         Schema::create('shorts', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('key')->unique();
+            $table->string('key')->index();
             $table->string('host');
             $table->text('url');
 
