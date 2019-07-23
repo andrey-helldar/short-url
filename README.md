@@ -16,7 +16,7 @@ Instead, you may of course manually update your require block and run `composer 
 ```json
 {
     "require": {
-        "andrey-helldar/short-url": "^1.0"
+        "andrey-helldar/short-url": "^1.1"
     }
 }
 ```
