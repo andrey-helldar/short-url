@@ -48,8 +48,8 @@ return [
     /*
      * Redirect status code.
      *
-     * Default, 301.
+     * Default, 302.
      */
 
-    'redirect_code' => 301,
+    'redirect_code' => 302,
 ];
