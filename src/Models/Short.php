@@ -29,6 +29,14 @@ class Short extends Model
 {
     protected $fillable = ['key', 'host', 'url', 'visited'];
 
+    public function __construct(array $attributes = [])
+    {
+        $this->connection = \config('short_url.connection');
+        $this->table      = \config('short_url.table', 'shorts');
+
+        parent::__construct($attributes);
+    }
+
     protected function setUrlAttribute(string $url)
     {
         $this->attributes['url'] = $url;

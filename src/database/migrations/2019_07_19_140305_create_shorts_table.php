@@ -6,23 +6,36 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateShortsTable extends Migration
 {
+    private $connection;
+
+    private $table;
+
+    public function __construct()
+    {
+        $this->connection = \config('short_url.connection');
+
+        $this->table = \config('short_url.table', 'shorts');
+    }
+
     public function up()
     {
-        Schema::create('shorts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::connection($this->connection)
+            ->create($this->table, function (Blueprint $table) {
+                $table->bigIncrements('id');
 
-            $table->string('key')->nullable()->index();
-            $table->string('host');
-            $table->text('url');
+                $table->string('key')->nullable()->index();
+                $table->string('host');
+                $table->text('url');
 
-            $table->unsignedBigInteger('visited')->default(0);
+                $table->unsignedBigInteger('visited')->default(0);
 
-            $table->timestamps();
-        });
+                $table->timestamps();
+            });
     }
 
     public function down()
     {
-        Schema::dropIfExists('shorts');
+        Schema::connection($this->connection)
+            ->dropIfExists($this->table);
     }
 }

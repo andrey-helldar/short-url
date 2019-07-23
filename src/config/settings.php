@@ -16,6 +16,20 @@ return [
     'key' => Model::UNIQUE_STRING,
 
     /*
+     * Set connection name to the database.
+     */
+
+    'connection' => \env('DB_CONNECTION'),
+
+    /*
+     * Set a table name.
+     *
+     * Default, 'shorts'.
+     */
+
+    'table' => 'shorts',
+
+    /*
      * Route name.
      *
      * Default, 'short_url'.
