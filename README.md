@@ -131,6 +131,15 @@ You can also call the facade from the template engine:
 ```html
 <a href="{{ \Helldar\ShortUrl\Facades\ShortUrl::get('foo') }}">open link</a>
 
+{{-- <a href="http://your-site.com/go/foo">open link</a> --}}
+
+```
+
+or
+
+```html
+<a href="{{ \Helldar\ShortUrl\Facades\ShortUrl::set('http://example.com') }}">open link</a>
+
 {{-- <a href="http://your-site.com/go/cr">open link</a> --}}
 
 ```
