@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateShortsTable extends Migration
 {
-    private $connection;
+    protected $connection;
 
     private $table;
 
