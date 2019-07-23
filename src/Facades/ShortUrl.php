@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @@method static \Helldar\ShortUrl\Models\Short get($key)
  * @@method static \Helldar\ShortUrl\Models\Short set($url)
+ * @@method static \Helldar\ShortUrl\Models\Short search($key)
  */
 class ShortUrl extends Facade
 {

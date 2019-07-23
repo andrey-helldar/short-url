@@ -27,10 +27,7 @@ class ShortService
 
     public function get(string $key): string
     {
-        /** @var \Helldar\ShortUrl\Models\Short $item */
-        $item = ShortModel::where('key', $key)->firstOrFail();
-
-        $item->increment('visited');
+        $item = $this->search($key);
 
         return $this->route($item->key);
     }
@@ -50,6 +47,16 @@ class ShortService
         $this->setKey($item);
 
         return $this->route($item->key);
+    }
+
+    public function search(string $key): ShortModel
+    {
+        /** @var \Helldar\ShortUrl\Models\Short $item */
+        $item = ShortModel::where('key', $key)->firstOrFail();
+
+        $item->increment('visited');
+
+        return $item;
     }
 
     private function route(string $key): string
