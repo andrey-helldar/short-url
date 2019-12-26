@@ -71,6 +71,11 @@ class ShortService
         return route($name, $key);
     }
 
+    /**
+     * @param string $url
+     *
+     * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
+     */
     private function validateUrl(string $url)
     {
         $validator = Validator::make(compact('url'), [
@@ -82,6 +87,13 @@ class ShortService
         }
     }
 
+    /**
+     * @param \Helldar\ShortUrl\Models\Short $model
+     *
+     * @throws \Helldar\Support\Exceptions\Laravel\IncorrectModelException
+     *
+     * @return \Helldar\ShortUrl\Models\Short
+     */
     private function setKey(ShortModel $model): ShortModel
     {
         if (! $model->key) {

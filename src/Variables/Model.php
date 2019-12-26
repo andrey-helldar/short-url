@@ -3,7 +3,6 @@
 namespace Helldar\ShortUrl\Variables;
 
 use Helldar\ShortUrl\Exceptions\IncorrectModelKeyIdentifierException;
-
 use ReflectionClass;
 
 use function array_values;
