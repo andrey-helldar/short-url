@@ -2,7 +2,11 @@
 
 namespace Helldar\ShortUrl\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+
+use function config;
+use function parse_url;
 
 /**
  * \Helldar\ShortUrl\Models\Short
@@ -14,16 +18,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $visited
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereKey($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereHost($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereVisited($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Helldar\ShortUrl\Models\Short whereUpdatedAt($value)
+ * @method static Builder|Short newModelQuery()
+ * @method static Builder|Short newQuery()
+ * @method static Builder|Short query()
+ * @method static Builder|Short whereId($value)
+ * @method static Builder|Short whereKey($value)
+ * @method static Builder|Short whereHost($value)
+ * @method static Builder|Short whereUrl($value)
+ * @method static Builder|Short whereVisited($value)
+ * @method static Builder|Short whereCreatedAt($value)
+ * @method static Builder|Short whereUpdatedAt($value)
  */
 class Short extends Model
 {
@@ -31,8 +35,8 @@ class Short extends Model
 
     public function __construct(array $attributes = [])
     {
-        $this->connection = \config('short_url.connection');
-        $this->table      = \config('short_url.table', 'shorts');
+        $this->connection = config('short_url.connection');
+        $this->table      = config('short_url.table', 'shorts');
 
         parent::__construct($attributes);
     }
@@ -41,6 +45,6 @@ class Short extends Model
     {
         $this->attributes['url'] = $url;
 
-        $this->setAttribute('host', \parse_url($url, PHP_URL_HOST));
+        $this->setAttribute('host', parse_url($url, PHP_URL_HOST));
     }
 }

@@ -2,12 +2,14 @@
 
 namespace Helldar\ShortUrl;
 
+use function config_path;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/settings.php' => \config_path('short_url.php'),
+            __DIR__ . '/config/settings.php' => config_path('short_url.php'),
         ], 'config');
 
         $this->loadMigrationsFrom(

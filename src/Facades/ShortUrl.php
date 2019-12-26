@@ -2,15 +2,16 @@
 
 namespace Helldar\ShortUrl\Facades;
 
+use Helldar\ShortUrl\Models\Short;
 use Helldar\ShortUrl\Services\ShortService;
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Helldar\ShortUrl\Facades\ShortUrl
  *
- * @@method static \Helldar\ShortUrl\Models\Short get($key)
- * @@method static \Helldar\ShortUrl\Models\Short set($url)
- * @@method static \Helldar\ShortUrl\Models\Short search($key)
+ * @@method static Short get($key)
+ * @@method static Short set($url)
+ * @@method static Short search($key)
  */
 class ShortUrl extends Facade
 {

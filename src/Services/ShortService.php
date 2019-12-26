@@ -10,6 +10,11 @@ use Helldar\Support\Laravel\Models\ModelHelper;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
+use function compact;
+use function config;
+use function route;
+use function uniqid;
+
 class ShortService
 {
     /** @var int */
@@ -20,7 +25,7 @@ class ShortService
      */
     public function __construct()
     {
-        $this->key = \config('short_url.key', 2);
+        $this->key = config('short_url.key', 2);
 
         Model::verify($this->key);
     }
@@ -42,7 +47,7 @@ class ShortService
     {
         $this->validateUrl($url);
 
-        $item = ShortModel::firstOrCreate(\compact('url'));
+        $item = ShortModel::firstOrCreate(compact('url'));
 
         $this->setKey($item);
 
@@ -61,14 +66,14 @@ class ShortService
 
     private function route(string $key): string
     {
-        $name = \config('short_url.route_name', 'go');
+        $name = config('short_url.route_name', 'go');
 
-        return \route($name, $key);
+        return route($name, $key);
     }
 
     private function validateUrl(string $url)
     {
-        $validator = Validator::make(\compact('url'), [
+        $validator = Validator::make(compact('url'), [
             'url' => 'required|active_url',
         ]);
 
@@ -79,7 +84,7 @@ class ShortService
 
     private function setKey(ShortModel $model): ShortModel
     {
-        if (!$model->key) {
+        if (! $model->key) {
             $helper = new ModelHelper;
 
             switch ($this->key) {
@@ -91,11 +96,11 @@ class ShortService
                     break;
 
                 default:
-                    $key = Str::slug(\uniqid(null, true));
+                    $key = Str::slug(uniqid(null, true));
                     break;
             }
 
-            $model->update(\compact('key'));
+            $model->update(compact('key'));
         }
 
         return $model;

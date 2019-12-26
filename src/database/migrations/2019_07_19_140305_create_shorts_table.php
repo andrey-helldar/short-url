@@ -12,9 +12,9 @@ class CreateShortsTable extends Migration
 
     public function __construct()
     {
-        $this->connection = \config('short_url.connection');
+        $this->connection = config('short_url.connection');
 
-        $this->table = \config('short_url.table', 'shorts');
+        $this->table = config('short_url.table', 'shorts');
     }
 
     public function up()

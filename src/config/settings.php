@@ -19,7 +19,7 @@ return [
      * Set connection name to the database.
      */
 
-    'connection' => \env('DB_CONNECTION'),
+    'connection' => env('DB_CONNECTION'),
 
     /*
      * Set a table name.

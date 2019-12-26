@@ -2,7 +2,9 @@
 
 namespace Helldar\ShortUrl\Exceptions;
 
-class IncorrectUrlException extends \Exception
+use Exception;
+
+class IncorrectUrlException extends Exception
 {
     public function __construct(string $message)
     {
