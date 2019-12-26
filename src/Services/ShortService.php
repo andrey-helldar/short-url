@@ -79,7 +79,7 @@ class ShortService
     private function validateUrl(string $url)
     {
         $validator = Validator::make(compact('url'), [
-            'url' => 'required|active_url',
+            'url' => 'required|url',
         ]);
 
         if ($validator->fails()) {
