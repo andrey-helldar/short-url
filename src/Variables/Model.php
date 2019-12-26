@@ -5,10 +5,6 @@ namespace Helldar\ShortUrl\Variables;
 use Helldar\ShortUrl\Exceptions\IncorrectModelKeyIdentifierException;
 use ReflectionClass;
 
-use function array_values;
-use function in_array;
-use function is_int;
-
 class Model
 {
     const PRIMARY_KEY = 1;

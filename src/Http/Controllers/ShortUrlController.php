@@ -4,9 +4,6 @@ namespace Helldar\ShortUrl\Http\Controllers;
 
 use Helldar\ShortUrl\Facades\ShortUrl;
 
-use function config;
-use function redirect;
-
 class ShortUrlController extends Controller
 {
     /**

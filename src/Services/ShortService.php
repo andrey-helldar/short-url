@@ -10,11 +10,6 @@ use Helldar\Support\Laravel\Models\ModelHelper;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-use function compact;
-use function config;
-use function route;
-use function uniqid;
-
 class ShortService
 {
     /** @var int */

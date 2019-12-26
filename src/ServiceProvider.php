@@ -2,8 +2,6 @@
 
 namespace Helldar\ShortUrl;
 
-use function config_path;
-
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function boot()

@@ -5,9 +5,6 @@ namespace Helldar\ShortUrl\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-use function config;
-use function parse_url;
-
 /**
  * \Helldar\ShortUrl\Models\Short
  *
