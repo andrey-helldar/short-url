@@ -94,24 +94,23 @@ class ShortService
     private function setKey(ShortModel $model): ShortModel
     {
         if (! $model->key) {
-            $helper = new ModelHelper;
+            if ($this->key == Model::PRIMARY_KEY) {
+                $primary = $this->modelHelper()->primaryKey($model);
+                $id      = $model->{$primary};
 
-            switch ($this->key) {
-                case Model::PRIMARY_KEY:
-                    $primary = $helper->primaryKey($model);
-                    $id      = $model->{$primary};
-
-                    $key = Digit::shortString($id);
-                    break;
-
-                default:
-                    $key = Str::slug(uniqid(null, true));
-                    break;
+                $key = Digit::shortString($id);
+            } else {
+                $key = Str::slug(uniqid(null, true));
             }
 
             $model->update(compact('key'));
         }
 
         return $model;
+    }
+
+    private function modelHelper(): ModelHelper
+    {
+        return app(ModelHelper::class);
     }
 }
