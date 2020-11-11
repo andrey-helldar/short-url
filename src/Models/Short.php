@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * \Helldar\ShortUrl\Models\Short.
- *
  * @property int id
  * @property string|null $key
  * @property string $host
