@@ -7,10 +7,10 @@ return [
      * The source of the unique identifier.
      *
      * Available:
-     *   1 - Helldar\ShortUrl\Variables\Model::PRIMARY_KEY
-     *   2 - Helldar\ShortUrl\Variables\Model::UNIQUE_STRING
+     *   1 - \Helldar\ShortUrl\Variables\Model::PRIMARY_KEY
+     *   2 - \Helldar\ShortUrl\Variables\Model::UNIQUE_STRING
      *
-     * Default, 2.
+     * Default, Model::UNIQUE_STRING.
      */
 
     'key' => Model::UNIQUE_STRING,
