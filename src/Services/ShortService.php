@@ -2,11 +2,11 @@
 
 namespace Helldar\ShortUrl\Services;
 
+use Helldar\LaravelSupport\Support\ModelHelper;
 use Helldar\ShortUrl\Exceptions\IncorrectUrlException;
 use Helldar\ShortUrl\Models\Short as ShortModel;
 use Helldar\ShortUrl\Variables\Model;
 use Helldar\Support\Facades\Digit;
-use Helldar\Support\Laravel\Models\ModelHelper;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -33,7 +33,7 @@ class ShortService
     }
 
     /**
-     * @param string $url
+     * @param  string  $url
      *
      * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
      * @throws \Helldar\Support\Exceptions\Laravel\IncorrectModelException
@@ -69,7 +69,7 @@ class ShortService
     }
 
     /**
-     * @param string $url
+     * @param  string  $url
      *
      * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
      */
@@ -85,7 +85,7 @@ class ShortService
     }
 
     /**
-     * @param \Helldar\ShortUrl\Models\Short $model
+     * @param  \Helldar\ShortUrl\Models\Short  $model
      *
      * @throws \Helldar\Support\Exceptions\Laravel\IncorrectModelException
      *
