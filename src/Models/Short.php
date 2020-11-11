@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * \Helldar\ShortUrl\Models\Short
+ * \Helldar\ShortUrl\Models\Short.
  *
  * @property int id
- * @property null|string $key
+ * @property string|null $key
  * @property string $host
  * @property string $url
  * @property int $visited
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static Builder|Short newModelQuery()
  * @method static Builder|Short newQuery()
  * @method static Builder|Short query()

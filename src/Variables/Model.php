@@ -7,9 +7,9 @@ use ReflectionClass;
 
 class Model
 {
-    const PRIMARY_KEY = 1;
+    public const PRIMARY_KEY = 1;
 
-    const UNIQUE_STRING = 2;
+    public const UNIQUE_STRING = 2;
 
     /**
      * @param int $value
