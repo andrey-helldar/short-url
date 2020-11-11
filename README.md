@@ -2,6 +2,11 @@
  
 A simple short URL generator for Laravel Framework.
 
+[![StyleCI Status][badge_styleci]][link_styleci]
+[![Stable Version][badge_stable]][link_packagist]
+[![Unstable Version][badge_unstable]][link_packagist]
+[![Total Downloads][badge_downloads]][link_packagist]
+[![License][badge_license]][link_license]
 
 ## Installation
 
@@ -16,7 +21,7 @@ Instead, you may of course manually update your require block and run `composer 
 ```json
 {
     "require": {
-        "andrey-helldar/short-url": "^1.1"
+        "andrey-helldar/short-url": "^1.4"
     }
 }
 ```
@@ -148,3 +153,14 @@ or
 ## License
 
 This package is released under the [MIT License](LICENSE).
+
+
+[badge_styleci]:    https://styleci.io/repos/197787449/shield
+[badge_stable]:     https://img.shields.io/github/v/release/andrey-helldar/short-url?label=stable&style=flat-square
+[badge_unstable]:   https://img.shields.io/badge/unstable-dev--master-orange?style=flat-square
+[badge_downloads]:  https://img.shields.io/packagist/dt/andrey-helldar/short-url.svg?style=flat-square
+[badge_license]:    https://img.shields.io/packagist/l/andrey-helldar/short-url.svg?style=flat-square
+
+[link_styleci]:     https://github.styleci.io/repos/197787449
+[link_packagist]:   https://packagist.org/packages/andrey-helldar/short-url
+[link_license]:     LICENSE
