@@ -7,11 +7,9 @@ use Helldar\ShortUrl\Services\ShortService;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Helldar\ShortUrl\Facades\ShortUrl
- *
- * @@method static Short get($key)
- * @@method static Short set($url)
- * @@method static Short search($key)
+ * @method static Short get($key)
+ * @method static Short set($url)
+ * @method static Short search($key)
  */
 class ShortUrl extends Facade
 {
