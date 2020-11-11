@@ -3,11 +3,12 @@
 namespace Helldar\ShortUrl\Http\Controllers;
 
 use Helldar\ShortUrl\Facades\ShortUrl;
+use Illuminate\Routing\Controller as BaseController;
 
-class ShortUrlController extends Controller
+class ShortUrlController extends BaseController
 {
     /**
-     * @param string $key
+     * @param  string  $key
      *
      * @return \Illuminate\Http\RedirectResponse
      */
