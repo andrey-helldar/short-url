@@ -21,7 +21,7 @@ Instead, you may of course manually update your require block and run `composer 
 ```json
 {
     "require": {
-        "andrey-helldar/short-url": "^1.4"
+        "andrey-helldar/short-url": "^2.0"
     }
 }
 ```
@@ -29,7 +29,7 @@ Instead, you may of course manually update your require block and run `composer 
 If you don't use auto-discovery, add the `ServiceProvider` to the providers array in `config/app.php`:
 
 ```php
-Helldar\ShortUrl\ServiceProvider::class,
+Helldar\ShortUrl\ServiceProvider::class
 ```
 
 You can also publish the config file to change implementations (ie. interface to specific class):
