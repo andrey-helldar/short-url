@@ -6,7 +6,7 @@ use Helldar\LaravelSupport\Support\ModelHelper;
 use Helldar\ShortUrl\Exceptions\IncorrectUrlException;
 use Helldar\ShortUrl\Models\Short as ShortModel;
 use Helldar\ShortUrl\Variables\Model;
-use Helldar\Support\Facades\Digit;
+use Helldar\Support\Facades\Helpers\Digit;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -36,7 +36,6 @@ class ShortService
      * @param  string  $url
      *
      * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
-     * @throws \Helldar\Support\Exceptions\Laravel\IncorrectModelException
      *
      * @return string
      */
@@ -87,7 +86,7 @@ class ShortService
     /**
      * @param  \Helldar\ShortUrl\Models\Short  $model
      *
-     * @throws \Helldar\Support\Exceptions\Laravel\IncorrectModelException
+     * @throws \Helldar\LaravelSupport\Exceptions\IncorrectModelException
      *
      * @return \Helldar\ShortUrl\Models\Short
      */
@@ -98,7 +97,7 @@ class ShortService
                 $primary = $this->modelHelper()->primaryKey($model);
                 $id      = $model->{$primary};
 
-                $key = Digit::shortString($id);
+                $key = Digit::shortKey($id);
             } else {
                 $key = Str::slug(uniqid(null, true));
             }
