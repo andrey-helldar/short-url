@@ -36,7 +36,7 @@ class ShortService
      * @param  string  $url
      *
      * @throws \Helldar\LaravelSupport\Exceptions\IncorrectModelException
-     * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      *
      * @return string
      */
@@ -88,6 +88,7 @@ class ShortService
      * @param  \Helldar\ShortUrl\Models\Short  $model
      *
      * @throws \Helldar\LaravelSupport\Exceptions\IncorrectModelException
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      *
      * @return \Helldar\ShortUrl\Models\Short
      */

@@ -12,7 +12,7 @@ class Model
     public const UNIQUE_STRING = 2;
 
     /**
-     * @param int $value
+     * @param  int  $value
      *
      * @throws \Helldar\ShortUrl\Exceptions\IncorrectModelKeyIdentifierException
      */
