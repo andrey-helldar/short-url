@@ -2,7 +2,6 @@
 
 namespace Helldar\ShortUrl\Models;
 
-use Helldar\Support\Facades\Helpers\Http;
 use Helldar\Support\Facades\Helpers\HttpBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -41,8 +40,6 @@ class Short extends Model
 
     protected function setUrlAttribute(string $url)
     {
-        Http::validateUrl($url);
-
         $builder = HttpBuilder::parse($url);
 
         $this->attributes['url']  = $builder->compile();
