@@ -7,6 +7,7 @@ use Helldar\ShortUrl\Models\Short as ShortModel;
 use Helldar\ShortUrl\Variables\Model;
 use Helldar\Support\Facades\Helpers\Digit;
 use Helldar\Support\Facades\Helpers\Http;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 class ShortService
@@ -45,7 +46,8 @@ class ShortService
     {
         $this->validateUrl($url);
 
-        $item = ShortModel::firstOrCreate(compact('url'));
+        /** @var \Helldar\ShortUrl\Models\Short $item */
+        $item = $this->builder()->firstOrCreate(compact('url'));
 
         $this->setKey($item);
 
@@ -54,8 +56,8 @@ class ShortService
 
     public function search(string $key): ShortModel
     {
-        /** @var \Helldar\ShortUrl\Models\Short $item */
-        $item = ShortModel::where('key', $key)->firstOrFail();
+        /** @var \Helldar\ShortUrl\Models\Short|\Illuminate\Database\Eloquent\Builder $item */
+        $item = $this->builder()->where('key', $key)->firstOrFail();
 
         $item->increment('visited');
 
@@ -66,7 +68,7 @@ class ShortService
     {
         $name = config('short_url.route_name', 'short_url');
 
-        return route($name, $key);
+        return route($name, compact('key'));
     }
 
     protected function validateUrl(string $url)
@@ -93,11 +95,27 @@ class ShortService
         return $model;
     }
 
+    /**
+     * @param  \Helldar\ShortUrl\Models\Short  $model
+     *
+     * @throws \Helldar\LaravelSupport\Exceptions\IncorrectModelException
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * @return string
+     */
     protected function getModelKey(ShortModel $model): string
     {
         return $this->key === Model::PRIMARY_KEY ? $this->getPrimaryKey($model) : $this->getUniqueKey();
     }
 
+    /**
+     * @param  \Helldar\ShortUrl\Models\Short  $model
+     *
+     * @throws \Helldar\LaravelSupport\Exceptions\IncorrectModelException
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * @return string
+     */
     protected function getPrimaryKey(ShortModel $model): string
     {
         $primary = $this->model()->primaryKey($model);
@@ -110,5 +128,10 @@ class ShortService
     protected function getUniqueKey(): string
     {
         return Str::slug(uniqid(null, true));
+    }
+
+    protected function builder(): Builder
+    {
+        return ShortModel::query();
     }
 }

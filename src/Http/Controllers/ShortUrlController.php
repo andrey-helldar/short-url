@@ -3,6 +3,7 @@
 namespace Helldar\ShortUrl\Http\Controllers;
 
 use Helldar\ShortUrl\Facades\ShortUrl;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller as BaseController;
 
 class ShortUrlController extends BaseController
@@ -12,7 +13,7 @@ class ShortUrlController extends BaseController
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function go(string $key)
+    public function go(string $key): RedirectResponse
     {
         $item = ShortUrl::search($key);
 

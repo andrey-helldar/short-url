@@ -2,4 +2,9 @@
 vendor/
 
 *.cache
+*.clover
+*.orig
+
+ocular.phar
+
 composer.lock

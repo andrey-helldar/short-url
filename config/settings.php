@@ -10,7 +10,7 @@ return [
      *   1 - \Helldar\ShortUrl\Variables\Model::PRIMARY_KEY
      *   2 - \Helldar\ShortUrl\Variables\Model::UNIQUE_STRING
      *
-     * Default, Model::UNIQUE_STRING.
+     * Default, Model::PRIMARY_KEY.
      */
 
     'key' => Model::PRIMARY_KEY,
@@ -39,6 +39,8 @@ return [
 
     /*
      * URL prefix for the route.
+     *
+     * For example, https://example.com/go/abc
      *
      * Default, 'go'.
      */

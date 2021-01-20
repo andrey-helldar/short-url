@@ -1,5 +1,5 @@
 # Short URL
- 
+
 A simple short URL generator for Laravel Framework.
 
 [![StyleCI Status][badge_styleci]][link_styleci]
@@ -61,7 +61,6 @@ The first one is by the record identifier in the database with its conversion in
 | 5000 | hki | https://example.com/qax | https://my-site.com/go/hki |
 | ... | ... | ... | ... |
 
-
 The second is unique identifier based on the current time in microseconds:
 
 | id | key | url | output url |
@@ -77,8 +76,6 @@ The second is unique identifier based on the current time in microseconds:
 | 5000 | 5d35c31aca1c1975257906 | https://example.com/qax | https://my-site.com/go/5d35c31aca1c1975257906 |
 | ... | ... | ... | ... |
 
-
-
 ### set()
 
 To create a record, use the method `set()`:
@@ -90,7 +87,6 @@ $item = ShortUrl::set('https://example.com');
 // returned instance of `Helldar\ShortUrl\Models\Short` eloquent model.
 ```
 
-
 ### get()
 
 To get record, use the method `get()`:
@@ -98,11 +94,10 @@ To get record, use the method `get()`:
 ```php
 use \Helldar\ShortUrl\Facades\ShortUrl;
 
-$url = ShortUrl::get('foo')
+$url = ShortUrl::get('foo');
 // returned URL string.
 // For example, 'http://<your_site>.com/go/qdr'.
 ```
-
 
 ### routing
 
@@ -113,7 +108,7 @@ use \Helldar\ShortUrl\Facades\ShortUrl;
 
 $item = ShortUrl::set('https://example.com');
 
-return route('short_url', ['go' => $item->key]); 
+return route('short_url', ['key' => $item->key]); 
 ```
 
 or
@@ -149,18 +144,18 @@ or
 
 ```
 
-
-## License
-
-This package is released under the [MIT License](LICENSE).
-
-
 [badge_styleci]:    https://styleci.io/repos/197787449/shield
+
 [badge_stable]:     https://img.shields.io/github/v/release/andrey-helldar/short-url?label=stable&style=flat-square
+
 [badge_unstable]:   https://img.shields.io/badge/unstable-dev--master-orange?style=flat-square
+
 [badge_downloads]:  https://img.shields.io/packagist/dt/andrey-helldar/short-url.svg?style=flat-square
+
 [badge_license]:    https://img.shields.io/packagist/l/andrey-helldar/short-url.svg?style=flat-square
 
 [link_styleci]:     https://github.styleci.io/repos/197787449
+
 [link_packagist]:   https://packagist.org/packages/andrey-helldar/short-url
+
 [link_license]:     LICENSE
