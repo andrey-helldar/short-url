@@ -18,7 +18,7 @@ class ShortService
     protected $key;
 
     /**
-     * @throws \Helldar\ShortUrl\Exceptions\IncorrectModelKeyIdentifierException
+     * @throws \Helldar\ShortUrl\Exceptions\IncorrectModelKeyException
      */
     public function __construct()
     {
@@ -127,7 +127,7 @@ class ShortService
 
     protected function getUniqueKey(): string
     {
-        return Str::slug(uniqid(null, true));
+        return Str::slug(uniqid('', true));
     }
 
     protected function builder(): Builder

@@ -2,6 +2,7 @@
 
 namespace Helldar\ShortUrl\Conrerns;
 
+use Closure;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\Facades\Schema;
 
@@ -18,14 +19,9 @@ trait Migrationable
         $this->table = config('short_url.table', 'shorts');
     }
 
-    protected function createTable(callable $callback): void
+    protected function createTable(Closure $callback): void
     {
         $this->tableConnection()->create($this->table, $callback);
-    }
-
-    protected function changeTable(callable $callback): void
-    {
-        $this->tableConnection()->table($this->table, $callback);
     }
 
     protected function tableConnection(): Builder
