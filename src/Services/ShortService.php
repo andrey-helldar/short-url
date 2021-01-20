@@ -35,6 +35,7 @@ class ShortService
     /**
      * @param  string  $url
      *
+     * @throws \Helldar\LaravelSupport\Exceptions\IncorrectModelException
      * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
      *
      * @return string
