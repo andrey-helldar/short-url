@@ -2,18 +2,19 @@
 
 namespace Helldar\ShortUrl\Services;
 
-use Helldar\LaravelSupport\Support\ModelHelper;
-use Helldar\ShortUrl\Exceptions\IncorrectUrlException;
+use Helldar\LaravelSupport\Traits\InitModelHelper;
 use Helldar\ShortUrl\Models\Short as ShortModel;
 use Helldar\ShortUrl\Variables\Model;
 use Helldar\Support\Facades\Helpers\Digit;
-use Illuminate\Support\Facades\Validator;
+use Helldar\Support\Facades\Helpers\Http;
 use Illuminate\Support\Str;
 
 class ShortService
 {
+    use InitModelHelper;
+
     /** @var int */
-    private $key;
+    protected $key;
 
     /**
      * @throws \Helldar\ShortUrl\Exceptions\IncorrectModelKeyIdentifierException
@@ -61,27 +62,16 @@ class ShortService
         return $item;
     }
 
-    private function route(string $key): string
+    protected function route(string $key): string
     {
-        $name = config('short_url.route_name', 'go');
+        $name = config('short_url.route_name', 'short_url');
 
         return route($name, $key);
     }
 
-    /**
-     * @param  string  $url
-     *
-     * @throws \Helldar\ShortUrl\Exceptions\IncorrectUrlException
-     */
-    private function validateUrl(string $url)
+    protected function validateUrl(string $url)
     {
-        $validator = Validator::make(compact('url'), [
-            'url' => 'required|url',
-        ]);
-
-        if ($validator->fails()) {
-            throw new IncorrectUrlException($validator->errors()->first());
-        }
+        Http::validateUrl($url);
     }
 
     /**
@@ -92,17 +82,10 @@ class ShortService
      *
      * @return \Helldar\ShortUrl\Models\Short
      */
-    private function setKey(ShortModel $model): ShortModel
+    protected function setKey(ShortModel $model): ShortModel
     {
-        if (! $model->key) {
-            if ($this->key == Model::PRIMARY_KEY) {
-                $primary = $this->modelHelper()->primaryKey($model);
-                $id      = $model->{$primary};
-
-                $key = Digit::shortKey($id);
-            } else {
-                $key = Str::slug(uniqid(null, true));
-            }
+        if (empty($model->key)) {
+            $key = $this->getModelKey($model);
 
             $model->update(compact('key'));
         }
@@ -110,8 +93,22 @@ class ShortService
         return $model;
     }
 
-    private function modelHelper(): ModelHelper
+    protected function getModelKey(ShortModel $model): string
     {
-        return app(ModelHelper::class);
+        return $this->key === Model::PRIMARY_KEY ? $this->getPrimaryKey($model) : $this->getUniqueKey();
+    }
+
+    protected function getPrimaryKey(ShortModel $model): string
+    {
+        $primary = $this->model()->primaryKey($model);
+
+        $id = $model->{$primary};
+
+        return Digit::shortKey($id);
+    }
+
+    protected function getUniqueKey(): string
+    {
+        return Str::slug(uniqid(null, true));
     }
 }
