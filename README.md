@@ -3,6 +3,11 @@
 A simple short URL generator for Laravel Framework.
 
 [![StyleCI Status][badge_styleci]][link_styleci]
+[![Github Workflow Status][badge_build]][link_build]
+[![Coverage Status][badge_coverage]][link_scrutinizer]
+[![Scrutinizer Code Quality][badge_quality]][link_scrutinizer]
+[![For Laravel][badge_laravel]][link_packagist]
+
 [![Stable Version][badge_stable]][link_packagist]
 [![Unstable Version][badge_unstable]][link_packagist]
 [![Total Downloads][badge_downloads]][link_packagist]
@@ -29,7 +34,7 @@ Instead, you may of course manually update your require block and run `composer 
 If you don't use auto-discovery, add the `ServiceProvider` to the providers array in `config/app.php`:
 
 ```php
-Helldar\ShortUrl\ServiceProvider::class
+Helldar\ShortUrl\ServiceProvider::class;
 ```
 
 You can also publish the config file to change implementations (ie. interface to specific class):
@@ -144,18 +149,30 @@ or
 
 ```
 
-[badge_styleci]:    https://styleci.io/repos/197787449/shield
+[badge_build]:      https://img.shields.io/github/workflow/status/andrey-helldar/short-url/phpunit?style=flat-square
 
-[badge_stable]:     https://img.shields.io/github/v/release/andrey-helldar/short-url?label=stable&style=flat-square
-
-[badge_unstable]:   https://img.shields.io/badge/unstable-dev--master-orange?style=flat-square
+[badge_coverage]:   https://img.shields.io/scrutinizer/coverage/g/andrey-helldar/short-url.svg?style=flat-square
 
 [badge_downloads]:  https://img.shields.io/packagist/dt/andrey-helldar/short-url.svg?style=flat-square
 
+[badge_laravel]:    https://img.shields.io/badge/Laravel-5.5+%20%7C%206.x%20%7C%207.x%20%7C%208.x-orange.svg?style=flat-square
+
 [badge_license]:    https://img.shields.io/packagist/l/andrey-helldar/short-url.svg?style=flat-square
 
-[link_styleci]:     https://github.styleci.io/repos/197787449
+[badge_quality]:    https://img.shields.io/scrutinizer/g/andrey-helldar/short-url.svg?style=flat-square
+
+[badge_stable]:     https://img.shields.io/github/v/release/andrey-helldar/short-url?label=stable&style=flat-square
+
+[badge_styleci]:    https://styleci.io/repos/197787449/shield
+
+[badge_unstable]:   https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
+
+[link_build]:       https://github.com/andrey-helldar/short-url/actions
+
+[link_license]:     LICENSE
 
 [link_packagist]:   https://packagist.org/packages/andrey-helldar/short-url
 
-[link_license]:     LICENSE
+[link_scrutinizer]: https://scrutinizer-ci.com/g/andrey-helldar/short-url
+
+[link_styleci]:     https://github.styleci.io/repos/197787449
