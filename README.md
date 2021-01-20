@@ -113,7 +113,7 @@ use \Helldar\ShortUrl\Facades\ShortUrl;
 
 $item = ShortUrl::set('https://example.com');
 
-return route('short_url', [$item->key]); 
+return route('short_url', ['go' => $item->key]); 
 ```
 
 or
