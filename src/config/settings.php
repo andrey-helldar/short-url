@@ -13,7 +13,7 @@ return [
      * Default, Model::UNIQUE_STRING.
      */
 
-    'key' => Model::UNIQUE_STRING,
+    'key' => Model::PRIMARY_KEY,
 
     /*
      * Set connection name to the database.
