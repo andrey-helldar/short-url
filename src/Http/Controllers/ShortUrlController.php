@@ -15,6 +15,7 @@ class ShortUrlController extends BaseController
     public function go(string $key)
     {
         $item = ShortUrl::search($key);
+
         $code = config('short_url.redirect_code');
 
         return redirect()->away($item->url, $code);
