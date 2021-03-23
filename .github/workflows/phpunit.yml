@@ -10,8 +10,9 @@ jobs:
             matrix:
                 php: [ "7.2", "7.3", "7.4" ]
                 laravel: [ "5.5.*" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -24,13 +25,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }} phpunit/phpunit:~6.0
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }} phpunit/phpunit:~6.0
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
@@ -43,8 +39,9 @@ jobs:
             matrix:
                 php: [ "7.2", "7.3", "7.4" ]
                 laravel: [ "5.6.*" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -57,13 +54,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }} phpunit/phpunit:~7.0
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }} phpunit/phpunit:~7.0
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
@@ -76,8 +68,9 @@ jobs:
             matrix:
                 php: [ "7.2", "7.3", "7.4" ]
                 laravel: [ "5.7.*" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -90,13 +83,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }} phpunit/phpunit:~7.0
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }} phpunit/phpunit:~7.0
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
@@ -109,8 +97,9 @@ jobs:
             matrix:
                 php: [ "7.2", "7.3", "7.4" ]
                 laravel: [ "5.8.*" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -123,13 +112,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }} phpunit/phpunit:^8.0
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }} phpunit/phpunit:^8.0
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
@@ -142,8 +126,9 @@ jobs:
             matrix:
                 php: [ "7.2", "7.3", "7.4", "8.0" ]
                 laravel: [ "^6.0" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -156,13 +141,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }} phpunit/phpunit:^8.3
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }} phpunit/phpunit:^8.3
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
@@ -175,8 +155,9 @@ jobs:
             matrix:
                 php: [ "7.2", "7.3", "7.4", "8.0" ]
                 laravel: [ "^7.0" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -189,13 +170,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }}
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }}
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
@@ -208,8 +184,9 @@ jobs:
             matrix:
                 php: [ "7.3", "7.4", "8.0" ]
                 laravel: [ "^8.0" ]
+                support: [ "2.0", "3.0" ]
 
-        name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}, Support ${{ matrix.support }}
 
         steps:
             -   name: Checkout code
@@ -222,13 +199,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require laravel/framework:${{ matrix.laravel }}
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer require laravel/framework:${{ matrix.laravel }} andrey-helldar/support:^${{ matrix.support }}
 
             -   name: Execute tests
                 run: vendor/bin/phpunit
