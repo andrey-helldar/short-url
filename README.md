@@ -13,6 +13,8 @@ A simple short URL generator for Laravel Framework.
 [![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
+> This package is **abandoned** and no longer maintained. The author suggests using the [`ashallendesign/short-url`](https://github.com/ash-jc-allen/short-url) package instead.
+
 ## Installation
 
 To get the latest version of Laravel Short URL, simply require the project using [composer](https://getcomposer.org):
